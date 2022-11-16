@@ -8,17 +8,65 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.*/
 
-let controllaSePalindroma = prompt("Inserisci una parola da controllare se palindroma");
+let controllaSePalindroma = document.getElementById("parola").value;
+let bottonePali = document.getElementById("bottonePali");
 
-console.log(palindroma(controllaSePalindroma));
+bottonePali.addEventListener('click', function(){
+   console.log(palindroma(controllaSePalindroma));
+   if (controllaSePalindroma){
+      document.getElementById("risposta").innerHTML = controllaSePalindroma+ " La stringa è palindroma";
+   }else{
+      document.getElementById("risposta").innerHTML = controllaSePalindroma+" La stringa non è palindroma";
+   }
+})
 
-let scelta = prompt("secgli pari true o dispari false" );
+
+
+// let scelta = prompt("secgli pari true o dispari false" );
+
+let bottonePari = document.getElementById("bottonePari");
+let bottoneDispari = document.getElementById("bottoneDispari");
+
+let numRandom = random();   //random da 1 a 5
+
+bottonePari.addEventListener('click', function(){
+   let numUtente = prompt("Inserisci un numero da 1 a 5");
+   let somma = numRandom+numUtente;
+
+   if(somma%2 == 0){
+      document.getElementById("risultato").innerHTML = "HAI VINTO";
+
+   }else{
+      document.getElementById("risultato").innerHTML = "HAI PERSO";
+
+   }
+
+
+})
+
+bottoneDispari.addEventListener('click', function(){
+   let numUtente = prompt("Inserisci un numero da 1 a 5");
+   let somma = numRandom+numUtente;
+
+   if(somma%2 != 0){
+      document.getElementById("risultato").innerHTML = "HAI VINTO";
+
+   }else{
+      document.getElementById("risultato").innerHTML = "HAI PERSO";
+
+   }
+
+
+})
+
+
+
+/*
 
 
 if(scelta == true || scelta == false){
    
    let numUtente = prompt("Inserisci un numero da 1 a 5");
-   let numRandom = random();
 
    let somma = somma(numRandom, numUtente);
    console.log(numUtente+ "+" +numRandom+ "=" + somma);
@@ -42,7 +90,7 @@ if(scelta == true || scelta == false){
 
 
 
-
+*/
 
 
 // ----------------------------- FUNZIONI-------------------------------
