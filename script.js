@@ -1,43 +1,49 @@
-// let listaSpesa = ["avocado", "uova", "pane", "latte", "succo", "patatine", "sale", "sale", "olio"];
-
-// // IL SALE NON PIACE ALL'HTML?
-// console.log("STAMPA FOR");
-
-// for (let i = 0; i < listaSpesa.length; i++) {
-//    console.log(listaSpesa[i]);
-
-// }
-
-// console.log("STAMPA WHILE");
-// let j = 0;
-// while(j < listaSpesa.length){
-
-//     console.log(listaSpesa[j]);
-//     j++
-
-// }
-
-// let elenco = document.querySelector(".elencoPuntato");
-// let pulsanteX = '<button type="button" class="cancella">X</button>'; 
-
-// for (let i = 0; i < listaSpesa.length; i++) {
-//     elenco.innerHTML += "<div><li class= \"elemento my-2\"><h4>"+listaSpesa[i]+"</h4>"+pulsanteX+"</li></div>";
-//  }
-
-//  let aggButton = document.getElementById("aggiungi");
-
-//  aggButton.addEventListener('click', function(){
-
-//     let aggiunta = prompt("Quale elemento vuoi aggiungere?");
-//     elenco.innerHTML += "<div><li class= \"elemento my-2\"><h4>"+aggiunta+"</h4>"+pulsanteX+"</li></div>";
-
-//  })
-
-// //  aggiungi un contatore ai bottoni degli elementi li per riconoscerli con la doppia classe per poi poter capire quale eliminare ....... NO...
+/*Palidroma:
+Chiedere all’utente di inserire una parola
+Creare una funzione per capire se la parola inserita è palindroma e poi usate quella funzione appena dichiarata
+Pari e Dispari:
+L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+Sommiamo i due numeri
+Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+Dichiariamo chi ha vinto.*/
 
 let controllaSePalindroma = prompt("Inserisci una parola da controllare se palindroma");
 
 console.log(palindroma(controllaSePalindroma));
+
+let scelta = prompt("secgli pari true o dispari false" );
+
+
+if(scelta == true || scelta == false){
+   
+   let numUtente = prompt("Inserisci un numero da 1 a 5");
+   let numRandom = random();
+
+   let somma = somma(numRandom, numUtente);
+   console.log(numUtente+ "+" +numRandom+ "=" + somma);
+
+   if (numUtente<1 || numUtente>5){
+      console.log("Non hai inserio un numero valido" + numUtente);
+   }else if (pariDispari(numRandom)==pariDispari(numUtente)){
+      console.log("HAI VINTO");
+   
+   }else{
+      console.log("HAI perso");
+
+   }
+}else {
+   console.log("Non hai inserito una scelta valida " + scelta);
+
+}
+
+
+
+
+
+
+
+
 
 // ----------------------------- FUNZIONI-------------------------------
 
@@ -48,9 +54,27 @@ function palindroma (stringa){
       console.log(stringa[i]+":"+stringa[stringa.length - 1 - i])
 
       if (stringa[i] !== stringa[stringa.length - 1 - i]) { 
-         return false;
+         return false;  // la strinfa non è palindroma
       }
 
    }
-   return true;
+   return true;   // la stringa è palindroma
+}
+
+function random (){
+   return Math.round(Math.random()*4)+1;
+}
+
+function somma (x,y){
+   return x+y;
+
+}
+
+function pariDispari(num){
+   if(num%2 == 0){
+      return true;  // pari
+   }else{
+      return false;  // dispari
+   }
+
 }
