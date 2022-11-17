@@ -21,7 +21,6 @@ bottonePali.addEventListener('click', function(){
 })
 
 
-
 // let scelta = prompt("secgli pari true o dispari false" );
 
 let bottonePari = document.getElementById("bottonePari");
